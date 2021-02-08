@@ -1,0 +1,288 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2020.4">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="66" y="54" width="276" height="72" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Example Solution Builder App - Travel &amp; Entertainment Expense Analysis
+
+1.2 - ETL</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">G:\dev\tne\1_data\0_raw\employees.xlsx|||`Sheet1$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>employees.xlsx
+Query=`Sheet1$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="employee_id" source="File: G:\dev\tne\1_data\0_raw\employees.xlsx|||`Sheet1$`" type="Double" />
+            <Field name="employee_first_name" size="255" source="File: G:\dev\tne\1_data\0_raw\employees.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="employee_last_name" size="255" source="File: G:\dev\tne\1_data\0_raw\employees.xlsx|||`Sheet1$`" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="270" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">G:\dev\tne\1_data\0_raw\expenses.xlsx|||`Sheet1$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>False</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>expenses.xlsx
+Query=`Sheet1$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="expense_id" source="File: G:\dev\tne\1_data\0_raw\expenses.xlsx|||`Sheet1$`" type="Double" />
+            <Field name="expense_employee_id" source="File: G:\dev\tne\1_data\0_raw\expenses.xlsx|||`Sheet1$`" type="Double" />
+            <Field name="expense_date" source="File: G:\dev\tne\1_data\0_raw\expenses.xlsx|||`Sheet1$`" type="Date" />
+            <Field name="expense_location" size="255" source="File: G:\dev\tne\1_data\0_raw\expenses.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="expense_amount" source="File: G:\dev\tne\1_data\0_raw\expenses.xlsx|||`Sheet1$`" type="Double" />
+            <Field name="expense_approved" size="255" source="File: G:\dev\tne\1_data\0_raw\expenses.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="expense_approver" source="File: G:\dev\tne\1_data\0_raw\expenses.xlsx|||`Sheet1$`" type="Double" />
+            <Field name="expense_num_participants" source="File: G:\dev\tne\1_data\0_raw\expenses.xlsx|||`Sheet1$`" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="486" y="150" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="36">G:\dev\tne\1_data\1_prepped\tne_sample_data_prepped.sqlite|||employees</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <TransactionSize>0</TransactionSize>
+            <PostSQL />
+            <PreSQL />
+            <TransactionMessages>False</TransactionMessages>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>tne_sample_data_prepped.sqlite
+Query=employees</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="486" y="282" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="36">G:\dev\tne\1_data\1_prepped\tne_sample_data_prepped.sqlite|||expenses</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <TransactionSize>0</TransactionSize>
+            <PostSQL />
+            <PreSQL />
+            <TransactionMessages>False</TransactionMessages>
+            <OutputOption>Overwrite</OutputOption>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>tne_sample_data_prepped.sqlite
+Query=expenses</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicRename.DynamicRename">
+        <Position x="162" y="282" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RenameMode>Formula</RenameMode>
+          <Fields orderChanged="False">
+            <Field name="expense_id" />
+            <Field name="expense_employee_id" />
+            <Field name="expense_date" />
+            <Field name="expense_location" />
+            <Field name="expense_amount" />
+            <Field name="expense_approved" />
+            <Field name="expense_approver" />
+            <Field name="expense_num_participants" />
+            <Field name="*Unknown" />
+          </Fields>
+          <Expression>Replace([_CurrentField_], "expense_", "")</Expression>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="id" source="File: G:\dev\tne\1_data\0_raw\expenses.xlsx|||`Sheet1$`" type="Double" />
+            <Field name="employee_id" source="File: G:\dev\tne\1_data\0_raw\expenses.xlsx|||`Sheet1$`" type="Double" />
+            <Field name="date" source="File: G:\dev\tne\1_data\0_raw\expenses.xlsx|||`Sheet1$`" type="Date" />
+            <Field name="location" size="255" source="File: G:\dev\tne\1_data\0_raw\expenses.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="amount" source="File: G:\dev\tne\1_data\0_raw\expenses.xlsx|||`Sheet1$`" type="Double" />
+            <Field name="approved" size="255" source="File: G:\dev\tne\1_data\0_raw\expenses.xlsx|||`Sheet1$`" type="V_String" />
+            <Field name="approver" source="File: G:\dev\tne\1_data\0_raw\expenses.xlsx|||`Sheet1$`" type="Double" />
+            <Field name="num_participants" source="File: G:\dev\tne\1_data\0_raw\expenses.xlsx|||`Sheet1$`" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicRename" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="282" y="282" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="id" selected="True" type="V_WString" size="19" />
+            <SelectField field="employee_id" selected="True" type="V_WString" size="19" />
+            <SelectField field="approver" selected="True" type="V_WString" size="19" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="54" y="366" width="180" height="72" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>expenses:
+- get rid of "expense_" on column names
+- change ID data types from number to string
+
+employees:
+- change ID data type from number to string</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor r="255" g="255" b="128" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="27" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="23" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>1_2_etl</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
